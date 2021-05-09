@@ -1,0 +1,20 @@
+[
+  {
+      "category": "Modern",
+      "name": "Стул фамильный",
+      "image": "products_img/Стул_фамльный.jpeg",
+      "short_desc": "Красивый стул",
+      "description": "Очень удобный стул",
+      "price": "38600.84",
+      "quantity": 50
+  },
+  {
+      "category": "Modern",
+      "name": "Письменный стол",
+      "image": "products_img/Письменный_стол.jpg",
+      "short_desc": "Большой стол",
+      "description": "Очень удобный стол",
+      "price": "258000.00",
+      "quantity": 5
+  }
+]
