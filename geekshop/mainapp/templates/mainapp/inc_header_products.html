@@ -1,12 +1,20 @@
-<div class="hero-white">
-    <div class="header clearfix">
-        <a href="index.html" class="logo"></a>
-        <ul class="menu">
-            <li><a href="{% url 'main' %}">домой</a></li>
-            <li><a href="{% url 'products' %}" class="active">продукты</a></li>
-            <li><a href="{% url 'contacts' %}">контакты</a></li>
-        </ul>
-        <a href="#" class="search"></a>
-        <a href="#" class="basket"></a>
-    </div>
-</div>
+<ul class="links-menu">
+    <li>
+        <a href="{% url 'products:category' 0 %}"
+           class="{% if request.resolver_match.kwargs.pk == '0' %}
+                    active
+                {% endif %}">
+            все
+        </a>
+    </li>
+    {% for link in categories %}
+        <li>
+            <a href="{% url 'products:category' link.pk %}"
+               class="{% if request.resolver_match.kwargs.pk == link.pk %}
+                        active
+                    {% endif %}">
+                {{ link.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

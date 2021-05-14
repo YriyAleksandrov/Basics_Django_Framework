@@ -16,17 +16,20 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from .views import main, contacts
-from . import settings
 from mainapp import urls
+from . import settings
+from .views import contacts, main
+
+app_name = 'geekshop'
 
 
 urlpatterns = [
     path('', main, name='main'),
     path('admin/', admin.site.urls),
-    path('products/', include(urls), name='products'),
-    path('contact/', contacts, name='contacts'),
+    path('contacts/', contacts, name='contacts'),
+    path('products/', include(urls, namespace='products')),
     path('auth/', include('authapp.urls', namespace='auth')),
+    path('basket/', include('basketapp.urls', namespace='basket')),
 ]
 
 if settings.DEBUG:
