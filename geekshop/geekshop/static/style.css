@@ -1023,6 +1023,7 @@ td:first-child {
 	margin-top: 262px;
 }
 .related-products {
+    display: flex;
 	margin-bottom: 120px;
 }
 .related-products .block a img {

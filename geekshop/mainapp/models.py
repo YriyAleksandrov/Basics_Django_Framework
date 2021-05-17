@@ -2,6 +2,7 @@ from django.db import models
 
 
 class ProductCategory(models.Model):
+    objects = []
     name = models.CharField(
         max_length=64,
         unique=True,
@@ -26,6 +27,7 @@ class ProductCategory(models.Model):
 
 
 class Product(models.Model):
+    objects = []
     category = models.ForeignKey(
         ProductCategory,
         on_delete=models.CASCADE,
