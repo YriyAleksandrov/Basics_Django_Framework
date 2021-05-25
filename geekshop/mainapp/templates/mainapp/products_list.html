@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load my_tags %}
 
 {% block header %}
       <div class="hero-white">
@@ -34,6 +35,25 @@
             <h2>
                 Категория: {{ category.name }}
             </h2>
+            <h2>
+                Картинка:
+                <img src="{{ object.image|media_folder_products }}">
+            </h2>
+            <div class="paginator">
+                {% if products.has_previous %}
+                    <a href="{% url 'products:page' category.pk products.previous_page_number %}">
+                      <
+                    </a>
+                {% endif %}
+                <span class="current">
+                    страница {{ products.number }} из {{ products.paginator.num_pages }}
+                </span>
+                {% if products.has_next %}
+                    <a href="{% url 'products:page' category.pk products.next_page_number %}">
+                      >
+                    </a>
+                {% endif %}
+            </div>
             <div class="category-products row">
               {% for product in products %}
                 <div class="block w-25 my-3 mx-3">
